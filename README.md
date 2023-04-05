@@ -1,6 +1,10 @@
 # game615-spring2023-08
 Project by Anthony Saliba and Tristan Sallin
 
+Playable link at:
+
+https://tasallin.github.io/game615-spring2023-08/exercise08/play/
+
 Attributions:
 
 Arrow by Poly by Google [CC-BY] via Poly Pizza
