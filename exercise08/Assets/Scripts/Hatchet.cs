@@ -10,12 +10,14 @@ public class Hatchet : SpecialAttack
     public float forwardForce;
     public float upwardForce;
     public Hitbox hitbox;
+    Quaternion startingRotation;
 
     // Start is called before the first frame update
     void Start()
     {
         offCooldown = true;
         hatchetStartingPosition = hatchet.transform.localPosition;
+        startingRotation = hatchet.transform.localRotation;
     }
 
     // Update is called once per frame
@@ -32,15 +34,17 @@ public class Hatchet : SpecialAttack
     }
 
     IEnumerator ThrowHatchet() {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.6f);
         hatchet.transform.parent = null;
         hatchet.GetComponent<Rigidbody>().isKinematic = false;
         hatchet.GetComponent<Rigidbody>().AddForce(transform.forward * forwardForce);
         hatchet.GetComponent<Rigidbody>().AddForce(transform.up * upwardForce);
+        yield return new WaitForSeconds(0.01f);
         hitbox.active = true;
         yield return new WaitForSeconds(5);
         hatchet.transform.parent = transform;
         hatchet.transform.localPosition = hatchetStartingPosition;
+        hatchet.transform.localRotation = startingRotation;
         hatchet.GetComponent<Rigidbody>().isKinematic = true;
         hitbox.active = false;
         offCooldown = true;

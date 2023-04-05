@@ -21,7 +21,8 @@ public class Hitbox : MonoBehaviour
     void OnCollisionEnter(Collision other) {
         if (active && other.gameObject.tag.Equals("Unit")) {
             other.gameObject.GetComponent<UnitController>().Damage(power);
-            Debug.Log("!");
+        } else if (active && other.gameObject.tag.Equals("Destructible")) {
+            other.gameObject.GetComponent<OgreCage>().Break();
         }
     }
 }

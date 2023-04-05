@@ -12,6 +12,9 @@ public class UnitController : MonoBehaviour
     public float moveSpeed;
     public GameObject marker;
     public GameObject selectParticles;
+    public AudioSource damageSfx;
+    public AudioSource dieSfx;
+    public AudioSource attackSfx;
     GameManager gm;
 
     // Start is called before the first frame update
@@ -70,6 +73,7 @@ public class UnitController : MonoBehaviour
 
     public void Attack() {
         attack.Attack();
+        attackSfx.Play();
     }
 
     public void Select() {
@@ -86,7 +90,11 @@ public class UnitController : MonoBehaviour
         hp -= amount;
         if (hp <= 0) {
             hp = 0;
+            dieSfx.Play();
             transform.rotation = Quaternion.Euler(90, 0, 0);
+        } else {
+            damageSfx.Play();
         }
+        gm.UpdateUI();
     }
 }

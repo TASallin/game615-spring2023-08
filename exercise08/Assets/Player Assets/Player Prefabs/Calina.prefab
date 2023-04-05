@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hatchet: {fileID: 191837050567029104}
-  forwardForce: 2500
+  forwardForce: 1600
   upwardForce: 250
   hitbox: {fileID: 3575344657444613821}
 --- !u!1 &7061731014217167091

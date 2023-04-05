@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Unit
+  - Destructible
   layers:
   - Default
   - TransparentFX
